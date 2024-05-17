@@ -64,11 +64,15 @@ class RayCasting:
             else:
                 depth = depth_hor
 
+            #
+            depth *= math.cos(self.game.player.angle - ray_angle)
+
             #projection
             proj_heigh = SCREE_DIST / (depth + 0.0001)
 
             #walls
-            pg.draw.rect(self.game.screen, 'white', 
+            color = [255 / (1 + depth ** 5 * 0.00002)] * 3
+            pg.draw.rect(self.game.screen, color, 
                          (ray * SCALE, HALF_HEIGHT - proj_heigh // 2, SCALE, proj_heigh))
 
             #
