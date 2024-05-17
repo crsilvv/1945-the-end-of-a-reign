@@ -25,9 +25,11 @@ class RayCasting:
             depth_hor = (y_hor - oy) / sin_a
             x_hor = ox + depth_hor * cos_a
 
+            #
             delta_depth = dy / sin_a
             dx = delta_depth * cos_a
 
+            #
             for i in range(MAX_DEPTH):
                 title_hor = int(x_hor), int(y_hor)
                 if title_hor in self.gam.map.world_map:
@@ -55,6 +57,16 @@ class RayCasting:
                 x_vert += dx
                 y_vert += dy
                 depth_vert += delta_depth
+
+            #depth
+            if depth_vert < depth_hor:
+                depth = depth_vert
+            else:
+                depth = depth_hor
+
+            #draw for debug
+            pg.draw.line(self.game.screen, 'yellow', (100 * ox, 100 * oy),
+                         (100 * ox + 100 * depth * cos_a, 100 * oy + 100 * depth * sin_a), 2)
 
             #
             ray_angle += DELTA_ALGLE
