@@ -1,4 +1,3 @@
 import pygame as pg
 import sys
-import os
-
+from settings import *
