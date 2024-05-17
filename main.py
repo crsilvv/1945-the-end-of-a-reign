@@ -8,6 +8,7 @@ class Game:
         pg.init()
         self.screen = pg.display.set_mode(RES)
         self.clock = pg.time.Clock()
+        self.delta_time = 1
         self.new_game()
     #
     def new_game(self):
@@ -15,7 +16,7 @@ class Game:
     #
     def update(self):
         pg.display.flip()
-        self.clock.tick(FPS)
+        self.delta_time = self.clock.tick(FPS)
         pg.display.set_caption(f'{self.clock.get_fps() :.1f}')
     #
     def draw(self):
