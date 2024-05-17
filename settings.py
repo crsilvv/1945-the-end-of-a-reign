@@ -2,6 +2,8 @@ import math
 
 #
 RES = WIDTH, HEIGHT = 1600, 900
+HALF_WIDTH = WIDTH // 2
+HALF_HEIGHT = HEIGHT // 2
 FPS = 0 # you can change the FPS
 
 #
@@ -17,3 +19,6 @@ NUM_RAYS = WIDTH //2
 HALF_NUM_RAYS = NUM_RAYS // 2
 DELTA_ALGLE = FOV / NUM_RAYS
 MAX_DEPTH = 20
+
+#
+SCREE_DIST = HALF_WIDTH / math.tan(HALF_FOV)
