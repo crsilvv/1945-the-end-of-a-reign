@@ -18,6 +18,24 @@ class RayCasting:
             sin_a = math.sin(ray_angle)
             cos_a = math.cos(ray_angle)
 
+            #horizontals
+            y_hor, dy = (y_map + 1, 1) if sin_a > 0 else (y_map - 1e-6, -1)
+
+            #
+            depth_hor = (y_hor - oy) / sin_a
+            x_hor = ox + depth_hor * cos_a
+
+            delta_depth = dy / sin_a
+            dx = delta_depth * cos_a
+
+            for i in range(MAX_DEPTH):
+                title_hor = int(x_hor), int(y_hor)
+                if title_hor in self.gam.map.world_map:
+                    break
+                x_hor += dx
+                y_hor += dy
+                depth_hor += delta_depth
+
             #verticals
             x_vert, dx = (x_map + 1, 1) if cos_a > 0 else (x_map - 1e-6, -1)
 
@@ -34,6 +52,9 @@ class RayCasting:
                 title_vert = int(x_vert), int(y_vert)
                 if title_vert in self.game.map.world_map:
                     break
+                x_vert += dx
+                y_vert += dy
+                depth_vert += delta_depth
 
             #
             ray_angle += DELTA_ALGLE
