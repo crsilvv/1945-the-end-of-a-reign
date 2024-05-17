@@ -7,6 +7,7 @@ class Player:
         self.game = game
         self.x, self.y = PLAYER_POSITION
         self.angle = PLAYER_ANGLE
+
     #
     def movement(self):
         sin_a = math.sin(self.angle)
@@ -15,6 +16,7 @@ class Player:
         speed = PLAYER_SPEED * self.game.delta_time
         speed_sin = speed * sin_a
         speed_cos = speed * cos_a
+
         #
         keys = pg.key.get_pressed()
         if keys[pg.K_w]:
@@ -43,13 +45,16 @@ class Player:
         pg.draw.line(self.game.screen, 'yellow', (self.x * 100, self.y *100),
                      (self.x * 100 + WIDTH * math.cos(self.angle),
                       self.y * 100 + WIDTH * math.sin(self.angle)), 2)
+        
     #
     def update(self):
         self.movement()
+
     #
     @property
     def pos(self):
         return self.x, self.y
+    
     #
     @property
     def map_pos(self):
