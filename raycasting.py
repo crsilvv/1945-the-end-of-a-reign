@@ -8,10 +8,10 @@ class RayCasting:
         self.game = game
         self.ray_casting_result = []
         self.objects_to_render = []
-        self.textures = self.game.object_renderer.wall_texture
+        self.textures = self.game.object_renderer.wall_textures
 
     #
-    def get_objects_to_renderer(self):
+    def get_objects_to_render(self):
         self.objects_to_render = []
         for ray, values in enumerate(self.ray_casting_result):
             depth, proj_height, texture, offset = values
@@ -81,7 +81,7 @@ class RayCasting:
                 y_vert += dy
                 depth_vert += delta_depth
 
-            #depth, texture e offset
+            #depth, texture and offset
             if depth_vert < depth_hor:
                 depth, texture = depth_vert, texture_vert
                 y_vert %= 1

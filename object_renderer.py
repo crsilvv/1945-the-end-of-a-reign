@@ -14,7 +14,7 @@ class ObjectRenderer:
 
     #
     def render_game_objects(self):
-        list_objects = self.game.raycasting.objectst_to_renderer
+        list_objects = self.game.raycasting.objects_to_render
         for depth, image, pos in list_objects:
             self.screen.blit(image, pos)
 
