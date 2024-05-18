@@ -4,9 +4,9 @@ from settings import *
 #
 class ObjectRenderer:
     def __init__(self, game):
-        self.game - game
+        self.game = game
         self.screen = game.screen
-        self.wall_texture = self.load_wall_texture()
+        self.wall_texture = self.load_wall_textures()
 
     #
     def draw(self):

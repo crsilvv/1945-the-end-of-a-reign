@@ -16,14 +16,12 @@ class RayCasting:
         for ray, values in enumerate(self.ray_casting_result):
             depth, proj_height, texture, offset = values
 
-            #
             wall_column = self.textures[texture].subsurface(
                 offset * (TEXTURE_SIZE - SCALE), 0, SCALE, TEXTURE_SIZE
             )
             wall_column = pg.transform.scale(wall_column, (SCALE, proj_height))
             wall_pos = (ray * SCALE, HALF_HEIGHT - proj_height // 2)
 
-            #
             self.objects_to_render.append((depth, wall_column, wall_pos))
 
     #
@@ -97,7 +95,7 @@ class RayCasting:
             depth *= math.cos(self.game.player.angle - ray_angle)
 
             #projection
-            proj_heigh = SCREE_DIST / (depth + 0.0001)
+            proj_height = SCREE_DIST / (depth + 0.0001)
 
             #ray casting result
             self.ray_casting_result.append((depth, proj_height, texture, offset))
