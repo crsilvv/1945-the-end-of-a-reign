@@ -6,7 +6,7 @@ class ObjectRenderer:
     def __init__(self, game):
         self.game = game
         self.screen = game.screen
-        self.wall_texture = self.load_wall_textures()
+        self.wall_textures = self.load_wall_textures()
 
     #
     def draw(self):
@@ -14,7 +14,7 @@ class ObjectRenderer:
 
     #
     def render_game_objects(self):
-        list_objects = self.game.raycasting.objectst_to_render
+        list_objects = self.game.raycasting.objectst_to_renderer
         for depth, image, pos in list_objects:
             self.screen.blit(image, pos)
 
@@ -25,7 +25,7 @@ class ObjectRenderer:
         return pg.transform.scale(texture, res)
     
     #
-    def load_wall_texture(self):
+    def load_wall_textures(self):
         return{
             1: self.get_texture('resources/textures/textures/1.png'),
             2: self.get_texture('resources/textures/textures/2.png'),
