@@ -41,5 +41,4 @@ class ObjectRenderer:
             12: self.get_texture('resources/textures/textures/12.png'),
             13: self.get_texture('resources/textures/textures/13.png'),
             14: self.get_texture('resources/textures/textures/14.png'),
-            15: self.get_texture('resources/textures/textures/15.png'),
         }
