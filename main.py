@@ -32,7 +32,7 @@ class Game:
 
     #
     def draw(self):
-        self.screen.fill('black')
+        #self.screen.fill('black')
         self.object_renderer.draw()
         #self.map.draw() #here is to see top vision
         #self.player.draw() #here is to see top vision
