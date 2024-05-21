@@ -7,7 +7,7 @@ class ObjectRenderer:
         self.game = game
         self.screen = game.screen
         self.wall_textures = self.load_wall_textures()
-        self.sky_image = self.get_texture('resources/sky.png', (WIDTH, HALF_HEIGHT))
+        self.sky_image = self.get_texture('resources/SKY2.png', (WIDTH, HALF_HEIGHT))
         self.sky_offset = 0
 
     #
@@ -38,17 +38,24 @@ class ObjectRenderer:
     #
     def load_wall_textures(self):
         return{
-            1: self.get_texture('resources/textures/textures/1.png'),
-            2: self.get_texture('resources/textures/textures/2.png'),
-            3: self.get_texture('resources/textures/textures/3.png'),
-            4: self.get_texture('resources/textures/textures/4.png'),
-            5: self.get_texture('resources/textures/textures/5.png'),
-            6: self.get_texture('resources/textures/textures/6.png'),
-            7: self.get_texture('resources/textures/textures/7.png'),
-            8: self.get_texture('resources/textures/textures/8.png'),
-            9: self.get_texture('resources/textures/textures/9.png'),
-            10: self.get_texture('resources/textures/textures/10.png'),
-            11: self.get_texture('resources/textures/textures/11.png'),
-            12: self.get_texture('resources/textures/textures/12.png'),
-            13: self.get_texture('resources/textures/textures/13.png'),
+            1: self.get_texture('resources/textures/textures/blue (1).png'),
+            2: self.get_texture('resources/textures/textures/blue (2).png'),
+            3: self.get_texture('resources/textures/textures/blue (3).png'),
+            4: self.get_texture('resources/textures/textures/blue (4).png'),
+            5: self.get_texture('resources/textures/textures/blue (5).png'),
+            6: self.get_texture('resources/textures/textures/brik (1).png'),
+            7: self.get_texture('resources/textures/textures/brik (2).png'),
+            8: self.get_texture('resources/textures/textures/brik (3).png'),
+            9: self.get_texture('resources/textures/textures/brik (4).png'),
+            10: self.get_texture('resources/textures/textures/brik (5).png'),
+            11: self.get_texture('resources/textures/textures/brik (6).png'),
+            12: self.get_texture('resources/textures/textures/cleanblue (1).png'),
+            13: self.get_texture('resources/textures/textures/cleanblue (2).png'),
+            14: self.get_texture('resources/textures/textures/cleanblue (3).png'),
+            15: self.get_texture('resources/textures/textures/cleanblue (4).png'),
+            16: self.get_texture('resources/textures/textures/cleanblue (5).png'),
+            17: self.get_texture('resources/textures/textures/cobble (1).png'),
+            18: self.get_texture('resources/textures/textures/cobble (2).png'),
+            19: self.get_texture('resources/textures/textures/cobble (3).png'),
+            20: self.get_texture('resources/textures/textures/cobble (4).png'),
         }
