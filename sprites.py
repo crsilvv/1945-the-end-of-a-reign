@@ -10,6 +10,12 @@ class SpriteObject:
         self.image = pg.image.load(path).convert_alpha()
         self.IMAGE_WIDTH = self.image.get_width()
         self.IMAGE_HALF_WIDTH = self.image.get_width() // 2
+        self.IAMGE_RATIO = self.IMAGE_WIDTH / self.image.get_height()
+
+    #
+    def get_sprite_projection(self):
+        proj = SCREE_DIST / self.norm_dist
+        proj_wi
 
     #
     def get_sprite(self):
@@ -29,7 +35,10 @@ class SpriteObject:
 
         #
         self.dist = math.hypot(dx, dy)
-        self.norm_dist = self.dist *
+        self.norm_dist = self.dist * math.cos(delta)
+        if -self.IMAGE_HALF_WIDTH < self.screen_x < (WIDTH + self.IMAGE_HALF_WIDTH) and self.norm_dist > 0.5:
+            self.get_sprite_projection()
+
 
     #
     def update(self):
