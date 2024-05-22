@@ -23,4 +23,10 @@ class SpriteObject:
         if (dx > 0 and self.player.angle > math.pi) or (dx < 0 and dy <0):
             delta += math.tau
 
-        
+        #
+        delta_rays = delta / DELTA_ANGLE
+        self.screen_x = (HALF_NUM_RAYS + delta_rays) * SCALE
+
+    #
+    def update(self):
+        self.get_sprite()
