@@ -27,6 +27,9 @@ class SpriteObject:
         delta_rays = delta / DELTA_ANGLE
         self.screen_x = (HALF_NUM_RAYS + delta_rays) * SCALE
 
+        #
+        self.dist = math.hypot(dx, dy)
+
     #
     def update(self):
         self.get_sprite()
