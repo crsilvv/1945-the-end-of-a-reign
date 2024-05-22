@@ -11,11 +11,23 @@ class SpriteObject:
         self.IMAGE_WIDTH = self.image.get_width()
         self.IMAGE_HALF_WIDTH = self.image.get_width() // 2
         self.IAMGE_RATIO = self.IMAGE_WIDTH / self.image.get_height()
+        self.dx, self.dy, self.theta, self.screen_x, self.dist, self.norm_dist = 0, 0, 0, 0, 1, 1
+        self.sprite_half_width = 0
 
     #
     def get_sprite_projection(self):
         proj = SCREE_DIST / self.norm_dist
-        proj_wi
+        proj_width, proj_height = proj * self.IAMGE_RATIO, proj
+
+        #
+        image = pg.transform.scale(self.image (proj_width, proj_height))
+
+        #
+        self.sprite_half_width = proj_width // 2
+        pos = self.screen_x - self.sprite_half_width, HALF_HEIGHT - proj_height // 2
+
+        #
+        self.game.raycasting.objects_to_render.append((self.norm_dist, image, pos))
 
     #
     def get_sprite(self):
