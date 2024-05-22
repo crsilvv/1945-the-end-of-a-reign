@@ -17,7 +17,7 @@ class SpriteObject:
     #
     def get_sprite_projection(self):
         proj = SCREE_DIST / self.norm_dist
-        proj_width, proj_height = proj * self.IAMGE_RATIO, proj
+        proj_width, proj_height = proj * self.IMAGE_RATIO, proj
 
         #
         image = pg.transform.scale(self.image (proj_width, proj_height))
