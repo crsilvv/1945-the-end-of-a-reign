@@ -29,6 +29,7 @@ class SpriteObject:
 
         #
         self.dist = math.hypot(dx, dy)
+        self.norm_dist = self.dist *
 
     #
     def update(self):
