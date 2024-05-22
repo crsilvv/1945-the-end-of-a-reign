@@ -20,7 +20,7 @@ class SpriteObject:
         proj_width, proj_height = proj * self.IMAGE_RATIO, proj
 
         #
-        image = pg.transform.scale(self.image (proj_width, proj_height))
+        image = pg.transform.scale(self.image, (proj_width, proj_height))
 
         #
         self.sprite_half_width = proj_width // 2
