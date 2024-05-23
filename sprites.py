@@ -3,7 +3,8 @@ from settings import *
 
 #
 class SpriteObject:
-    def __init__(self, game, path='resources/sprites/static_sprites/ARMRA0.png', pos=(10.5, 3.5)):
+    def __init__(self, game, path='resources/sprites/static_sprites/ARMRA0.png', 
+                 pos=(10.5, 3.5), scale=0.5, shift=0.0):
         self.game = game
         self.player = game.player
         self.x, self.y = pos
@@ -13,10 +14,12 @@ class SpriteObject:
         self.IMAGE_RATIO = self.IMAGE_WIDTH / self.image.get_height()
         self.dx, self.dy, self.theta, self.screen_x, self.dist, self.norm_dist = 0, 0, 0, 0, 1, 1
         self.sprite_half_width = 0
+        self.SPRITE_SCALE = scale
+        self.SPRITE_HEIGHT_SHIFT = shift
 
     #
     def get_sprite_projection(self):
-        proj = SCREE_DIST / self.norm_dist
+        proj = SCREE_DIST / self.norm_dist * self.SPRITE_SCALE
         proj_width, proj_height = proj * self.IMAGE_RATIO, proj
 
         #
