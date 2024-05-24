@@ -7,6 +7,12 @@ class Player:
         self.game = game
         self.x, self.y = PLAYER_POSITION
         self.angle = PLAYER_ANGLE
+        self.shot = False
+        
+
+    #
+    def single_fire_event(self, event):
+
 
     #
     def movement(self):
