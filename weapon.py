@@ -13,7 +13,6 @@ class Weapon(AnimatedSprite):
         self.frame_counter = 0
         self.damage = 50
 
-<<<<<<< HEAD
     #
     def animate_shot(self):
         if self.reloading:
@@ -26,8 +25,6 @@ class Weapon(AnimatedSprite):
                     self.reloading = False
                     self.frame_counter = 0
 
-=======
->>>>>>> f213bd71d1bc2bd07df6da9c7883aeb42bbc1cb6
     #
     def draw(self):
         self.game.screen.blit(self.images[0], self.weapon_pos)
