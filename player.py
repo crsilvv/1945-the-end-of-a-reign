@@ -8,11 +8,13 @@ class Player:
         self.x, self.y = PLAYER_POSITION
         self.angle = PLAYER_ANGLE
         self.shot = False
-        
+
 
     #
     def single_fire_event(self, event):
-
+        if event.type == pg.MOUSEBUTTONDOWN:
+            if event.button == 1 and not self.shot:
+                self.shot = True
 
     #
     def movement(self):
