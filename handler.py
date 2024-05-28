@@ -6,7 +6,7 @@ class ObjectHandler:
     def __init__(self, game):
         self.game = game
         self.sprite_list = []
-        self.npc_sprite_path = 'resources/sprites/monsters'
+        self.npc_sprite_path = 'resources/sprites/monsters/'
         self.static_sprite_path = 'resources/sprites/static_sprites/'
         self.anim_sprite_path = 'resources/sprites/animated_sprites/'
         add_sprite = self.add_sprite
