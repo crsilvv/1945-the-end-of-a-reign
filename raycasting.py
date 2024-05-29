@@ -2,7 +2,7 @@ import pygame as pg
 import math
 from settings import *
 
-#
+# classe RayCasting
 class RayCasting:
     def __init__(self, game):
         self.game = game
@@ -10,7 +10,7 @@ class RayCasting:
         self.objects_to_render = []
         self.textures = self.game.object_renderer.wall_textures
 
-    #
+    # renderização dos objetos/texturas
     def get_objects_to_render(self):
         self.objects_to_render = []
         for ray, values in enumerate(self.ray_casting_result):
@@ -33,14 +33,13 @@ class RayCasting:
 
             self.objects_to_render.append((depth, wall_column, wall_pos))
 
-    #
+    # todo o método de visão, movimentação e calculos do mapa + jogador
     def ray_cast(self):
         self.ray_casting_result = []
         texture_vert, texture_hor = 1, 1
         ox, oy = self.game.player.pos
         x_map, y_map = self.game.player.map_pos
 
-        #
         ray_angle = self.game.player.angle - HALF_FOV + 0.0001
         for ray in range (NUM_RAYS):
             sin_a = math.sin(ray_angle)
@@ -49,15 +48,12 @@ class RayCasting:
             #horizontals
             y_hor, dy = (y_map + 1, 1) if sin_a > 0 else (y_map - 1e-6, -1)
 
-            #
             depth_hor = (y_hor - oy) / sin_a
             x_hor = ox + depth_hor * cos_a
 
-            #
             delta_depth = dy / sin_a
             dx = delta_depth * cos_a
 
-            #
             for i in range(MAX_DEPTH):
                 tile_hor = int(x_hor), int(y_hor)
                 if tile_hor in self.game.map.world_map:
@@ -70,15 +66,12 @@ class RayCasting:
             #verticals
             x_vert, dx = (x_map + 1, 1) if cos_a > 0 else (x_map - 1e-6, -1)
 
-            #
             depth_vert = (x_vert - ox) / cos_a
             y_vert = oy + depth_vert * sin_a
 
-            #
             delta_depth = dx / cos_a
             dy = delta_depth * sin_a
 
-            #
             for i in range(MAX_DEPTH):
                 tile_vert = int(x_vert), int(y_vert)
                 if tile_vert in self.game.map.world_map:
@@ -88,7 +81,6 @@ class RayCasting:
                 y_vert += dy
                 depth_vert += delta_depth
 
-            #depth, texture and offset
             if depth_vert < depth_hor:
                 depth, texture = depth_vert, texture_vert
                 y_vert %= 1
@@ -98,19 +90,16 @@ class RayCasting:
                 x_hor %= 1
                 offset = (1 - x_hor) if sin_a > 0 else x_hor
 
-            #remove fisheye effect
+            #remover efeito olho de peixe
             depth *= math.cos(self.game.player.angle - ray_angle)
 
-            #projection
             proj_height = SCREE_DIST / (depth + 0.0001)
 
-            #ray casting result
             self.ray_casting_result.append((depth, proj_height, texture, offset))
 
-            #
             ray_angle += DELTA_ANGLE
     
-    #
+    # loop
     def update(self):
         self.ray_cast()
         self.get_objects_to_render()

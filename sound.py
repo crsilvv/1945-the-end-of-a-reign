@@ -1,6 +1,6 @@
 import pygame as pg
 
-#
+# todos sons utilizados
 class Sound:
     def __init__(self, game):
         self.game = game
