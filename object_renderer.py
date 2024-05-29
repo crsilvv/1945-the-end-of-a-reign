@@ -8,7 +8,7 @@ class ObjectRenderer:
         self.wall_textures = self.load_wall_textures()
         self.sky_image = self.get_texture('resources/SKY2.png', (WIDTH, HALF_HEIGHT))
         self.sky_offset = 0
-        self.blod_screen = self.get_texture('resources/textures/blood.png' ,RES)
+        self.blood_screen = self.get_texture('resources/textures/blood.png', RES)
         self.digit_size = 90
         self.digit_images = [self.get_texture(f'resources/textures/digits/{i}.png', [self.digit_size] * 2)
                              for i in range(11)]
@@ -34,7 +34,7 @@ class ObjectRenderer:
 
     # tela de dano
     def player_damage(self):
-        self.screen.blit(self.blod_screen, (0, 0))
+        self.screen.blit(self.blood_screen, (0, 0))
 
     # fundo/sky
     def draw_background(self):

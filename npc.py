@@ -1,5 +1,6 @@
 from sprites import *
 from random import randint, random, choice
+from sound import *
 
 # Classe geral dos NPC's
 class NPC(AnimatedSprite):

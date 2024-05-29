@@ -1,6 +1,7 @@
 from settings import *
 import pygame as pg
 import math
+from sound import *
 
 # classe das config do jogador
 class Player:

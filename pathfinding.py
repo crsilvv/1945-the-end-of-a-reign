@@ -1,6 +1,6 @@
 from collections import deque
 
-# movimentação dsitribuida e inteligente dos NPC's
+# localização de caminhos e permissão de movimentos diagonais
 class PathFinding:
     def __init__(self, game):
         self.game = game
