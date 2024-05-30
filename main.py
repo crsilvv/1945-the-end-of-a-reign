@@ -44,6 +44,7 @@ class Game:
     def draw(self):
         self.object_renderer.draw()
         self.weapon.draw()
+
     # eventos de verificação para fechar a tela 
     def check_events(self):
         self.global_trigger = False
