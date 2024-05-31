@@ -1,4 +1,4 @@
-from sprite_object import *
+from sprite import *
 from random import randint, random
 
 #
@@ -27,7 +27,6 @@ class NPC(AnimatedSprite):
         self.check_animation_time()
         self.get_sprite()
         self.run_logic()
-        # self.draw_ray_cast()
     def check_wall(self, x, y):
         return (x, y) not in self.game.map.world_map
     def check_wall_collision(self, dx, dy):
@@ -165,18 +164,13 @@ class NPC(AnimatedSprite):
         if 0 < player_dist < wall_dist or not wall_dist:
             return True
         return False
-    def draw_ray_cast(self):
-        pg.draw.circle(self.game.screen, 'red', (100 * self.x, 100 * self.y), 15)
-        if self.ray_cast_player_npc():
-            pg.draw.line(self.game.screen, 'orange', (100 * self.game.player.x, 100 * self.game.player.y),
-                         (100 * self.x, 100 * self.y), 2)
 
 # NPC's:
-class SoldierNPC(NPC):
+class SSFL(NPC):
     def __init__(self, game, path='resources/sprites/monsters/SSFL/0.png', pos=(10.5, 5.5),
                  scale=0.6, shift=0.38, animation_time=180):
         super().__init__(game, path, pos, scale, shift, animation_time)
-class CacoDemonNPC(NPC):
+class DOGY(NPC):
     def __init__(self, game, path='resources/sprites/monsters/DOGY/0.png', pos=(10.5, 6.5),
                  scale=0.7, shift=0.27, animation_time=250):
         super().__init__(game, path, pos, scale, shift, animation_time)
@@ -185,7 +179,7 @@ class CacoDemonNPC(NPC):
         self.attack_damage = 25
         self.speed = 0.05
         self.accuracy = 0.35
-class CyberDemonNPC(NPC):
+class HITLR(NPC):
     def __init__(self, game, path='resources/sprites/monsters/HITLR/0.png', pos=(11.5, 6.0),
                  scale=1.0, shift=0.04, animation_time=210):
         super().__init__(game, path, pos, scale, shift, animation_time)
