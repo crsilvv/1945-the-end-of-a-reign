@@ -57,7 +57,7 @@ class NPC(AnimatedSprite):
     # ataque dos NPC's
     def attack(self):
         if self.animation_trigger:
-            self.game.sound.monster_attack.play()
+            self.game.sound.npc_attack.play()
             if random() < self.accuracy:
                 self.game.player.get_damage(self.attack_damage)
 
@@ -79,7 +79,7 @@ class NPC(AnimatedSprite):
     def check_hit_in_npc(self):
         if self.ray_cast_value and self.game.player.shot:
             if HALF_WIDTH - self.sprite_half_width < self.screen_x < HALF_WIDTH + self.sprite_half_width:
-                self.game.sound.monster_pain.play()
+                self.game.sound.npc_pain.play()
                 self.game.player.shot = False
                 self.pain = True
                 self.health -= self.game.weapon.damage
@@ -89,7 +89,7 @@ class NPC(AnimatedSprite):
     def check_health(self):
         if self.health < 1:
             self.alive = False
-            self.game.sound.monster_death.play()
+            self.game.sound.npc_death.play()
 
     # toda a logicá de movimentação e animações
     def run_logic(self):
