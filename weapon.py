@@ -1,4 +1,4 @@
-from sprite_object import *
+from sprite import *
 
 #
 class Weapon(AnimatedSprite):
