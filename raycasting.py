@@ -2,14 +2,13 @@ import pygame as pg
 import math
 from settings import *
 
-
+#
 class RayCasting:
     def __init__(self, game):
         self.game = game
         self.ray_casting_result = []
         self.objects_to_render = []
         self.textures = self.game.object_renderer.wall_textures
-
     def get_objects_to_render(self):
         self.objects_to_render = []
         for ray, values in enumerate(self.ray_casting_result):
@@ -31,7 +30,6 @@ class RayCasting:
                 wall_pos = (ray * SCALE, 0)
 
             self.objects_to_render.append((depth, wall_column, wall_pos))
-
     def ray_cast(self):
         self.ray_casting_result = []
         texture_vert, texture_hor = 1, 1
@@ -99,7 +97,6 @@ class RayCasting:
             self.ray_casting_result.append((depth, proj_height, texture, offset))
 
             ray_angle += DELTA_ANGLE
-
     def update(self):
         self.ray_cast()
         self.get_objects_to_render()
