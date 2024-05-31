@@ -5,8 +5,8 @@ from map import *
 from player import *
 from raycasting import *
 from object_renderer import *
-from sprites import *
-from handler import *
+from sprite_object import *
+from object_handler import *
 from weapon import *
 from sound import *
 from pathfinding import *

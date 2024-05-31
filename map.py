@@ -1,6 +1,5 @@
 import pygame as pg
 
-#mapa: "_" = espaços vazios, "int" = texturas
 _ = False
 mini_map = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -37,8 +36,7 @@ mini_map = [
     [11, 11, 11, 14, 11, 11, 11, 14, 11, 11, 11, 14, 11, 11, 11, 14],
 ]
 
-# classe do mapa junto com uma instância de classe do jogo
-# para o minimapa e o mapa mundial se tornar atributos
+
 class Map:
     def __init__(self, game):
         self.game = game
@@ -53,3 +51,7 @@ class Map:
             for i, value in enumerate(row):
                 if value:
                     self.world_map[(i, j)] = value
+
+    def draw(self):
+        [pg.draw.rect(self.game.screen, 'darkgray', (pos[0] * 100, pos[1] * 100, 100, 100), 2)
+         for pos in self.world_map]
