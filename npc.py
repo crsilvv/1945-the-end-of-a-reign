@@ -175,8 +175,8 @@ class DOGY(NPC):
                  scale=0.7, shift=0.27, animation_time=250):
         super().__init__(game, path, pos, scale, shift, animation_time)
         self.attack_dist = 1.0
-        self.health = 150
-        self.attack_damage = 25
+        self.health = 250
+        self.attack_damage = 15
         self.speed = 0.05
         self.accuracy = 0.35
 class HITLR(NPC):
@@ -185,7 +185,7 @@ class HITLR(NPC):
         super().__init__(game, path, pos, scale, shift, animation_time)
         self.attack_dist = 6
         self.health = 350
-        self.attack_damage = 15
+        self.attack_damage = 25
         self.speed = 0.055
         self.accuracy = 0.25
 #
